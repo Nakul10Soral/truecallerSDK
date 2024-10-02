@@ -27,7 +27,7 @@ export default function TruecallerVerification() {
             setVerificationStatus('Verification failed: ' + result.error.message);
         } else {
             try {
-                const response = await fetch('/api/verify', {
+                const response = await fetch('/api/truecaller-callback', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
