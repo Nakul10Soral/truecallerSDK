@@ -1,11 +1,16 @@
-// app/api/verify/route.js
+// app/api/truecaller-callback/route.js
 import { NextResponse } from 'next/server';
 
 export async function POST(request) {
-    const { requestId, accessToken } = await request.json();
+    const callbackData = await request.json();
 
-    // In a real implementation, you would verify these tokens with Truecaller's API
-    // For this POC, we'll just return a success message
+    // Here you would typically:
+    // 1. Verify the signature of the callback data
+    // 2. Process the verification result
+    // 3. Update your user's status in the database
 
-    return NextResponse.json({ success: true, message: 'Verification successful!' });
+    console.log('Received Truecaller callback:', callbackData);
+
+    // For now, we'll just return a success response
+    return NextResponse.json({ success: true, message: 'Callback received' });
 }
