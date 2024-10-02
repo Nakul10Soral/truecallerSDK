@@ -4,7 +4,7 @@
 import { useState, useEffect } from 'react';
 
 export default function TruecallerVerification() {
-    const [verificationStatus, setVerificationStatus] = useState('');
+    const [verificationStatus, setVerificationStatus] = useState('inital');
 
     useEffect(() => {
         if (typeof window !== 'undefined' && window.truecaller) {
