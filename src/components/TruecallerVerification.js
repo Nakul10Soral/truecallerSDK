@@ -46,7 +46,7 @@ export default function TruecallerVerification() {
     return (
         <div>
             <h2>Truecaller Verification</h2>
-            <div id="truecaller-button"></div>
+            <div id="truecaller-button">verify</div>
             <p>{verificationStatus}</p>
         </div>
     );
