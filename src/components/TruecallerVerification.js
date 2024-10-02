@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 export default function TruecallerVerification() {
     const [verificationStatus, setVerificationStatus] = useState('inital');
 
-    useEffect(() => {
+    function callscript() {
         if (typeof window !== 'undefined' && window.truecaller) {
             window.truecaller.init({
                 appKey: 'Y2xoz2fa4299abf79429e95d5a8d51e253713',
@@ -20,6 +20,10 @@ export default function TruecallerVerification() {
                 },
             });
         }
+    }
+
+    useEffect(() => {
+        callscript()
     }, []);
 
     const handleVerificationResult = async (result) => {
@@ -46,7 +50,7 @@ export default function TruecallerVerification() {
     return (
         <div>
             <h2>Truecaller Verification</h2>
-            <div id="truecaller-button">verify</div>
+            <button id='truecaller-button'>verify</button>
             <p>{verificationStatus}</p>
         </div>
     );
