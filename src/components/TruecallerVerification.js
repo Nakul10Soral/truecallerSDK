@@ -9,7 +9,7 @@ export default function TruecallerVerification() {
     useEffect(() => {
         if (typeof window !== 'undefined' && window.truecaller) {
             window.truecaller.init({
-                appKey: 'YOUR_TRUECALLER_APP_KEY', // Replace with your actual app key
+                appKey: 'Y2xoz2fa4299abf79429e95d5a8d51e253713',
                 requestNonce: 'UNIQUE_REQUEST_NONCE',
                 callback: handleVerificationResult,
                 consent: 'User accepts the terms of service and privacy policy.',
