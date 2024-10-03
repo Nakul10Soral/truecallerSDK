@@ -1,29 +1,27 @@
-// components/TruecallerVerification.js
+// src/components/TruecallerVerification.js
 'use client'
 
 import { useState, useEffect } from 'react';
 
 export default function TruecallerVerification() {
-    const [verificationStatus, setVerificationStatus] = useState('inital');
+    const [verificationStatus, setVerificationStatus] = useState('');
 
-    function callscript() {
+    useEffect(() => {
         if (typeof window !== 'undefined' && window.truecaller) {
             window.truecaller.init({
-                appKey: 'Y2xoz2fa4299abf79429e95d5a8d51e253713',
-                requestNonce: 'UNIQUE_REQUEST_NONCE',
+                appKey: "Y2xoz2fa4299abf79429e95d5a8d51e253713",
                 callback: handleVerificationResult,
-                consent: 'User accepts the terms of service and privacy policy.',
-                consentTitleOption: 'TRUECALLER_TITLE',
+                consent: {
+                    consentTitle: 'Verify with Truecaller',
+                    consentText: 'By tapping "Verify", you consent to...',
+                    consentButtonText: 'Verify',
+                },
                 buttonOptions: {
                     buttonColor: '#2196F3',
                     buttonTextColor: '#FFFFFF',
                 },
             });
         }
-    }
-
-    useEffect(() => {
-        callscript()
     }, []);
 
     const handleVerificationResult = async (result) => {
@@ -34,10 +32,7 @@ export default function TruecallerVerification() {
                 const response = await fetch('/api/truecaller-callback', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        requestId: result.requestId,
-                        accessToken: result.accessToken,
-                    }),
+                    body: JSON.stringify(result),
                 });
                 const data = await response.json();
                 setVerificationStatus(data.message);
@@ -50,7 +45,7 @@ export default function TruecallerVerification() {
     return (
         <div>
             <h2>Truecaller Verification</h2>
-            <button id='truecaller-button'>verify</button>
+            <div id="truecaller-button"></div>
             <p>{verificationStatus}</p>
         </div>
     );

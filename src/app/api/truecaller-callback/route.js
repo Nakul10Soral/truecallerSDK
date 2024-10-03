@@ -1,4 +1,4 @@
-// app/api/truecaller-callback/route.js
+// src/app/api/truecaller-callback/route.js
 import { NextResponse } from 'next/server';
 
 export async function POST(request) {
@@ -12,5 +12,5 @@ export async function POST(request) {
     console.log('Received Truecaller callback:', callbackData);
 
     // For now, we'll just return a success response
-    return NextResponse.json({ success: true, message: 'Callback received' });
+    return NextResponse.json({ success: true, message: 'Callback received and processed' });
 }

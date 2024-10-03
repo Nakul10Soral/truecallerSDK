@@ -1,4 +1,6 @@
-import './globals.css'
+// src/app/layout.js
+import '@/styles/globals.css'
+import TruecallerSDKLoader from '@/components/TruecallerSDKLoader'
 
 export const metadata = {
   title: 'Truecaller Verification POC',
@@ -8,13 +10,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        <script
-          async
-          src="https://sdk.truecaller.com/web/v1/truesdk.js"
-        ></script>
-      </head>
-      <body>{children}</body>
+      <body>
+        <TruecallerSDKLoader />
+        {children}
+      </body>
     </html>
   )
 }
