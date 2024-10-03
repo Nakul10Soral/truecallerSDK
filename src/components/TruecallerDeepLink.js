@@ -27,14 +27,15 @@ const TruecallerDeepLink = () => {
         }, 3000);
     };
 
-    useEffect(() => {
-        // Trigger the Truecaller verification when the component mounts
-        triggerTruecallerVerification();
-    }, []);
+    // useEffect(() => {
+    //     // Trigger the Truecaller verification when the component mounts
+    //     triggerTruecallerVerification();
+    // }, []);
 
     return (
         <div>
             <h2>Phone Number Verification</h2>
+            <button onClick={triggerTruecallerVerification} >start verification</button>
             <p>{verificationStatus || 'Redirecting to Truecaller for verification...'}</p>
         </div>
     );
