@@ -1,5 +1,5 @@
 // src/app/layout.js
-import '@/styles/globals.css'
+import './globals.css'
 import TruecallerSDKLoader from '@/components/TruecallerSDKLoader'
 
 export const metadata = {
