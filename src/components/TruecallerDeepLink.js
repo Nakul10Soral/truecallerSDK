@@ -6,22 +6,17 @@ const TruecallerDeepLink = () => {
     const [verificationStatus, setVerificationStatus] = useState(null);
 
     const triggerTruecallerVerification = () => {
-        const requestNonce = Math.random().toString(36).substr(2, 9); // Generate a unique nonce
+        const requestNonce = Math.random().toString(36).substr(2, 9);
 
-        // Construct the Truecaller deep link
         const truecallerLink = `truecallersdk://truesdk/web_verify?type=btmsheet&requestNonce=${requestNonce}&partnerKey=${process.env.NEXT_PUBLIC_PARTNER_KEY}&partnerName=${process.env.NEXT_PUBLIC_PARTNER_NAME}&lang=en&privacyUrl=${process.env.NEXT_PUBLIC_PRIVACY_URL}&termsUrl=${process.env.NEXT_PUBLIC_TERMS_URL}&loginPrefix=Verify&loginSuffix=with%20Truecaller&ctaPrefix=Continue&ctaColor=#4CAF50&ctaTextColor=#FFFFFF&btnShape=rectangular&skipOption=Skip&ttl=300000`;
 
-        // Open the Truecaller modal in a new window, keeping the user on the same page
         window.open(truecallerLink, '_self');
 
-        // Timeout to check if Truecaller is installed or not
         setTimeout(() => {
             if (document.hasFocus()) {
-                // Truecaller app not present, redirect to alternate verification
                 setVerificationStatus('Truecaller app not found, redirecting to alternate verification.');
                 window.location.href = '/alternate-verification';
             } else {
-                // Truecaller app found and verification started
                 setVerificationStatus('Truecaller verification started.');
             }
         }, 3000);

@@ -3,17 +3,23 @@ export async function POST(req) {
         const { requestId, status } = await req.json();
 
         if (status === 'flow_invoked') {
+            console.log('Truecaller flow invoked successfully');
+            
             return new Response(
                 JSON.stringify({ message: 'Truecaller flow invoked successfully', requestId }),
                 { status: 200 }
             );
         } else {
+            console.log('Invalid Truecaller flow');
+            
             return new Response(
                 JSON.stringify({ error: 'Invalid Truecaller flow' }),
                 { status: 400 }
             );
         }
     } catch (error) {
+        console.log('Failed to handle callback');
+        
         return new Response(
             JSON.stringify({ error: 'Failed to handle callback' }),
             { status: 500 }
