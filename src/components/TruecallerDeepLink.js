@@ -24,7 +24,7 @@ const TruecallerDeepLink = () => {
                 // Truecaller app found and verification started
                 setVerificationStatus('Truecaller verification started.');
             }
-        }, 600);
+        }, 3000);
     };
 
     useEffect(() => {
