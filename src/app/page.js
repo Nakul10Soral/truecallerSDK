@@ -6,8 +6,8 @@ export default function Home() {
   return (
     <main>
       <h1>Truecaller Verification POC</h1>
-      <TruecallerVerification />
-      <h2>new verification</h2>
+      {/* <TruecallerVerification />
+      <h2>new verification</h2> */}
       <TruecallerDeepLink/>
     </main>
   );
