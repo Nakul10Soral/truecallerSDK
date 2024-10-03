@@ -11,8 +11,8 @@ const TruecallerDeepLink = () => {
         // Construct the Truecaller deep link
         const truecallerLink = `truecallersdk://truesdk/web_verify?type=btmsheet&requestNonce=${requestNonce}&partnerKey=${process.env.NEXT_PUBLIC_PARTNER_KEY}&partnerName=${process.env.NEXT_PUBLIC_PARTNER_NAME}&lang=en&privacyUrl=${process.env.NEXT_PUBLIC_PRIVACY_URL}&termsUrl=${process.env.NEXT_PUBLIC_TERMS_URL}&loginPrefix=Verify&loginSuffix=with%20Truecaller&ctaPrefix=Continue&ctaColor=#4CAF50&ctaTextColor=#FFFFFF&btnShape=rectangular&skipOption=Skip&ttl=300000`;
 
-        // Redirect to the Truecaller link
-        window.location.href = truecallerLink;
+        // Open the Truecaller modal in a new window, keeping the user on the same page
+        window.open(truecallerLink, '_self');
 
         // Timeout to check if Truecaller is installed or not
         setTimeout(() => {
