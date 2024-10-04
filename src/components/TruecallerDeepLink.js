@@ -8,7 +8,7 @@ const TruecallerDeepLink = () => {
     const triggerTruecallerVerification = () => {
         const requestNonce = "truecallerRequestNonce";
 
-        const truecallerLink = `truecallersdk://truesdk/web_verify?type=btmsheet&requestNonce=${requestNonce}&partnerKey=${process.env.NEXT_PUBLIC_PARTNER_KEY}&partnerName=${process.env.NEXT_PUBLIC_PARTNER_NAME}&lang=en&privacyUrl=${process.env.NEXT_PUBLIC_PRIVACY_URL}&termsUrl=${process.env.NEXT_PUBLIC_TERMS_URL}&loginPrefix=Verify&loginSuffix=with%20Truecaller&ctaPrefix=Continue&ctaColor=#4CAF50&ctaTextColor=#FFFFFF&btnShape=rectangular&skipOption=Enter%20Details%20Manually&ttl=300000;`
+        const truecallerLink = `truecallersdk://truesdk/web_verify?type=btmsheetrequestNonce=${requestNonce}&partnerKey=${process.env.NEXT_PUBLIC_PARTNER_KEY}&partnerName=${process.env.NEXT_PUBLIC_PARTNER_NAME}&lang=en&privacyUrl=${process.env.NEXT_PUBLIC_PRIVACY_URL}&termsUrl=${process.env.NEXT_PUBLIC_TERMS_URL}&loginPrefix=continuewith&loginSuffix=verifymobile&ctaPrefix=proceedwith&ctaColor=%23f75d34&ctaTextColor=%23f75d34&btnShape=rect&skipOption=manualdetails&ttl=300000`;
 
         window.open(truecallerLink, '_self');
 
