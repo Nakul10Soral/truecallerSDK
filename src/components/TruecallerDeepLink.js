@@ -6,7 +6,7 @@ const TruecallerDeepLink = () => {
     const [verificationStatus, setVerificationStatus] = useState(null);
 
     const triggerTruecallerVerification = () => {
-        const requestNonce = Math.random().toString(36).substr(2, 9);
+        const requestNonce = "truecallerRequestNonce";
 
         const truecallerLink = `truecallersdk://truesdk/web_verify?type=btmsheet&requestNonce=${requestNonce}&partnerKey=${process.env.NEXT_PUBLIC_PARTNER_KEY}&partnerName=${process.env.NEXT_PUBLIC_PARTNER_NAME}&lang=en&privacyUrl=${process.env.NEXT_PUBLIC_PRIVACY_URL}&termsUrl=${process.env.NEXT_PUBLIC_TERMS_URL}&loginPrefix=Verify&loginSuffix=with%20Truecaller&ctaPrefix=Continue&ctaColor=#4CAF50&ctaTextColor=#FFFFFF&btnShape=rectangular&skipOption=Skip&ttl=300000`;
 
