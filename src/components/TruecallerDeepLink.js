@@ -31,10 +31,6 @@ const TruecallerDeepLink = () => {
                 }
         };
         document.addEventListener('visibilitychange', handleVisibilityChange);
-    
-        return () => {
-              document.removeEventListener('visibilitychange', handleVisibilityChange);
-        };
     };
 
     // useEffect(() => {
