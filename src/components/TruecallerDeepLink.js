@@ -22,9 +22,9 @@ const TruecallerDeepLink = () => {
         // }, 3000);
         const handleVisibilityChange = () => {
           if (document.visibilityState === 'visible') {
-                setManualEntry(false);
+                console.log("nahi hai truecaller")
           } else {
-                setManualEntry(true);
+                console.log("nahi hai truecaller")
                 }
         };
         document.addEventListener('visibilitychange', handleVisibilityChange);
