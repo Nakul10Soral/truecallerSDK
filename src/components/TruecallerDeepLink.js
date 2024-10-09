@@ -21,10 +21,13 @@ const TruecallerDeepLink = () => {
             // }
         // }, 3000);
         const handleVisibilityChange = () => {
+            const colorDiv = document.getElementById('truecallerdiv');
           if (document.visibilityState === 'visible') {
-                console.log("nahi hai truecaller")
+                console.log("hai truecaller")
+              colorDiv.style.backgroundColor = "green"
           } else {
                 console.log("nahi hai truecaller")
+              colorDiv.style.backgroundColor = "red"
                 }
         };
         document.addEventListener('visibilitychange', handleVisibilityChange);
@@ -44,6 +47,9 @@ const TruecallerDeepLink = () => {
             <h2>Phone Number Verification</h2>
             <button onClick={triggerTruecallerVerification} >start verification</button>
             <p>{verificationStatus || 'Redirecting to Truecaller for verification...'}</p>
+            <div id="truecallerdiv">
+                truecaller is present or not
+            </div>
         </div>
     );
 };
