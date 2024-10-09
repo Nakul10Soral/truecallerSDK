@@ -12,14 +12,26 @@ const TruecallerDeepLink = () => {
 
         window.open(truecallerLink, '_self');
 
-        setTimeout(() => {
-            if (document.hasFocus()) {
-                setVerificationStatus('Truecaller app not found, redirecting to alternate verification.');
-                window.location.href = '/alternate-verification';
-            } else {
-                setVerificationStatus('Truecaller verification started.');
-            }
-        }, 3000);
+        // setTimeout(() => {
+            // if (document.hasFocus()) {
+            //     setVerificationStatus('Truecaller app not found, redirecting to alternate verification.');
+            //     window.location.href = '/alternate-verification';
+            // } else {
+            //     setVerificationStatus('Truecaller verification started.');
+            // }
+        // }, 3000);
+        const handleVisibilityChange = () => {
+          if (document.visibilityState === 'visible') {
+                setManualEntry(false);
+          } else {
+                setManualEntry(true);
+                }
+        };
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+    
+        return () => {
+              document.removeEventListener('visibilitychange', handleVisibilityChange);
+        };
     };
 
     // useEffect(() => {
